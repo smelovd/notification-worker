@@ -1,6 +1,7 @@
-package com.smelovd.notification_worker;
+package com.smelovd.notification_worker.kafka;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.smelovd.notification_worker.entity.Notification;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.stereotype.Component;
 
