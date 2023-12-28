@@ -1,29 +1,28 @@
 package com.smelovd.notification_api.entity;
 
-import jakarta.persistence.Entity;
+import com.smelovd.notification_worker.entity.NotificationStatus;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.sql.Timestamp;
 
 @Data
+@Document
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class NotificationApi {
 
-
     @Id
-    private Long id;
-
+    private String id;
+    private String fileId;
     private String serviceUserId;
-
     private String notificationService;
-
-    private Long notificationGroupId;
-
-    /*@Column(name = "timestamp")
+    private String notificationId;
     private Timestamp timestamp;
-
-    @Column(name = "count_try")
-    private Long countTry;*/
+    private NotificationStatus status;
 }

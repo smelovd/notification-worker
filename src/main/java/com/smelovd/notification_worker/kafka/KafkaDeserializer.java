@@ -23,7 +23,6 @@ public class KafkaDeserializer extends JsonDeserializer<Notification> {
         if (data == null) {
             return null;
         }
-
         try {
             return objectMapper.readValue(data, Notification.class);
         } catch (IOException e) {

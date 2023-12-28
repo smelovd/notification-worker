@@ -10,12 +10,15 @@ public class Main {
         KafkaSerializer kafkaSerializer = new KafkaSerializer();
         KafkaDeserializer kafkaDeserializer = new KafkaDeserializer();
 
-        NotificationApi notificationApi = new NotificationApi(1L, "1234", "124", 1L);
+        NotificationApi notificationApi = NotificationApi.builder()
+                .notificationId("1")
+                .notificationService("SMS")
+                .build();
         System.out.println(notificationApi + " " + notificationApi.getClass());
 
         byte[] notificationApiBytes = kafkaSerializer.serialize("notifications", notificationApi);
         Notification notificationEnded = kafkaDeserializer.deserialize("notifications", notificationApiBytes);
-
+        //System.out.println(notificationEnded.getNotificationService().send("1", "1"));
         System.out.println(notificationEnded + " " + notificationEnded.getClass());
         System.out.println(LocalDateTime.now());
     }
